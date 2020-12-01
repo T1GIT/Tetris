@@ -7,36 +7,69 @@ def get_border_clr(clr):
 
 
 class Configuration:
-    # Settings
+    # Window
+    TITLE = "Tetris"
+    WIN_HEIGHT = 1000  # px
+    RESIZABLE = False
+    BORDERS = True
+    FULLSCREEN = False
+    WITH_ICON = False
+    ICON_PATH = "../tetris/icon/icon.gif"
+    # Sizes
+    X_BLOCKS = 10  # blocks
+    Y_BLOCKS = 20  # blocks
+    NEXT_PAD = 1  # blocks
+    NEXT_BRD_WIDTH = 3  # px
+    VERTICAL_MARGIN = 3
+    OVERLAY_WIDTH = 300  # px
+    FIELD_BRD_WIDTH = 3  # px
+    DTL_BORDER_WIDTH = 5  # px
+    # Colors
     BG_CLR = "#111"
     FG_CLR = "gray"
     TXT_CLR = "white"
-    DTL_CLR = ["#515BD4", "#69E641", "#F3455D", "#F9C946", "#8F46D1"]
-    START_INTERVAL = 100  # ms
-    HEIGHT = 500  # window's height, px
-    OVERLAY_WIDTH = HEIGHT // 4  # px
-    FIELD_WIDTH = 10  # blocks
-    FIELD_HEIGHT = 20  # blocks
-    DTL_BORDER_WIDTH = 4
+    DTL_CLR = ["#515BD4", "#69E641", "#F3455D", "#F9C946", "#8F46D1", "#3EA23E", "#0FF0A5"]
+    # Rules
+    START_LEVEL = 1
+    LEVEL_CONDITION = 8  # lines
+    POINTS_FOR_LINES = [0, 100, 300, 700, 1500]
     DTL_TYPES = [
         [
-            [1, 1, 1, 1]
+            [0, 0, 0, 0],
+            [1, 1, 1, 1],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
         ], [
+            [0, 0, 0],
             [1, 1, 1],
             [0, 1, 0]
         ], [
             [1, 1],
             [1, 1]
         ], [
-            [1, 1, 1],
-            [1, 0, 0]
+            [1, 1, 0],
+            [0, 1, 0],
+            [0, 1, 0]
         ], [
             [0, 1, 1],
+            [0, 1, 0],
+            [0, 1, 0]
+        ], [
+            [0, 0, 0],
+            [0, 1, 1],
             [1, 1, 0]
+        ], [
+            [0, 0, 0],
+            [1, 1, 0],
+            [0, 1, 1]
         ]
     ]
-    # Don't touch
-    MAX_OVERLAY_WIDTH = HEIGHT // 3
+    # Gamepad
+    REFRESH_RATE = 30
+    HOLD_LIMIT = 5
+    # DON"T TOUCH
     DTL_BRD_CLR = list(map(get_border_clr, DTL_CLR))
+    WIN_HEIGHT = WIN_HEIGHT - WIN_HEIGHT % Y_BLOCKS
+    WIN_WIDTH = WIN_HEIGHT * X_BLOCKS // Y_BLOCKS + OVERLAY_WIDTH
     DTL_OFFSET = DTL_BORDER_WIDTH // 2
-    DTL_SIZE = HEIGHT // FIELD_HEIGHT
+    DTL_SIZE = WIN_HEIGHT // Y_BLOCKS

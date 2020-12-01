@@ -7,6 +7,7 @@ class Tetris:
 
     def start(self):
         self.root.mainloop()
+        self.root.exit()
 
 
 if __name__ == "__main__":
