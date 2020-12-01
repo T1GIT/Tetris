@@ -71,7 +71,7 @@ class Window(tk.Tk):
             elif event_name == "reset":
                 self.reset()
             if not self.paused:
-                if  event_name == 'left':
+                if event_name == 'left':
                     if fld.can_move(-1, 0):
                         fld.left()
                 elif event_name == 'right':

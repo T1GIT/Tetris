@@ -1,5 +1,4 @@
 import random as rnd
-import time
 import tkinter as tk
 
 from config import Configuration as Conf
